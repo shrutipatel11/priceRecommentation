@@ -32,7 +32,7 @@ The detailed timeline can be found in [Gantt Chart](https://docs.google.com/spre
 
 | Process                                                      | Date Range        |
 |:-------------------------------------------------------------|:------------------|
-| Data  Cleaning                                               | 10/7 - 10/12      |
+| Data Sourcing and Cleaning                                   | 10/7 - 10/12      |
 | Model Selections and Data Pre-processing (supervised)        | 10/12 - 10/20     |
 | Implement Supervised Learning Models and Analysis            | 10/20 -  11/11    |
 | Model Selections and Data Pre-processing (unsupervised)      | 11/11 - 11/18     |
