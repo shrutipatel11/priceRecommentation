@@ -28,7 +28,6 @@ This is a normal paragraph following a header. GitHub is a code hosting platform
 3.  This is an ordered list following a header.
 
 # Timeline
-Process/Stage	Date Range
 | Process                                           | Date Range        |
 |:--------------------------------------------------|:------------------|
 | Data Collection, Cleaning & Preparation           | TBD               |
