@@ -1,5 +1,7 @@
 ---
 layout: default
+title: House Price Prediction
+description: Aayushi Agarwal, Anirudh Heda, Dhruv Garg, Navdha Agarwal, Shruti Patel
 ---
 
 # Introduction/Background
@@ -25,7 +27,7 @@ This is a normal paragraph following a header. GitHub is a code hosting platform
 2.  This is an ordered list following a header.
 3.  This is an ordered list following a header.
 
-# Tineline
+# Timeline
 Process/Stage	Date Range
 | Process                                           | Date Range        |
 |:--------------------------------------------------|:------------------|
