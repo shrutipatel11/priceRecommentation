@@ -24,7 +24,7 @@ This is a normal paragraph following a header. GitHub is a code hosting platform
 3.  This is an ordered list following a header.
 
 # Timeline
-The detailed timeline can be found in [Gantt Chart] (https://docs.google.com/spreadsheets/d/1az16wonnse66ozJ7zGFMCuXEZcn8mAw1/edit?usp=sharing&ouid=105426710738045720116&rtpof=true&sd=true)
+The detailed timeline can be found in [Gantt Chart](https://docs.google.com/spreadsheets/d/1az16wonnse66ozJ7zGFMCuXEZcn8mAw1/edit?usp=sharing&ouid=105426710738045720116&rtpof=true&sd=true)
 | Process                                           | Date Range        |
 |:--------------------------------------------------|:------------------|
 | Data Collection, Cleaning & Preparation           | TBD               |
