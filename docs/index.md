@@ -5,7 +5,7 @@ description: Aayushi Agarwal, Anirudh Heda, Dhruv Garg, Navdha Agarwal, Shruti P
 ---
 
 # Introduction/Background
-Housing price instability was an important cause of the 2007-2008 US recession[1]. Predicting property’s value to forecast such depressions was consequential thereafter. We are using the Ames Housing Dataset[2] which describes sales of individual housing properties in Ames, Iowa in 2006-2010. This dataset contains 2930 observations and 80 explanatory features such as property’s sale price, finish quality, construction, and remodeling year. It provides a comprehensive understanding of factors that influence housing price negotiations.
+Housing price instability was an important cause of the 2007-2008 US recession[1]. Predicting property’s value to forecast such depressions was consequential thereafter. Some of the past works include regression techniques[2][3] and dimensionality reduction to improve house prediction model’s accuracy[4]. We are using the Ames Housing Dataset[5] which describes sales of individual housing properties in Ames, Iowa in 2006-2010. This dataset contains 2930 observations and 80 explanatory features such as property’s sale price, finish quality, construction, and remodeling year. It provides a comprehensive understanding of factors that influence housing price negotiations.
 
 
 # Problem
@@ -28,9 +28,12 @@ Through extensive data pre-processing and feature extraction, we seek to select 
 
 
 # References
-1.  Congressional Research Service: Introduction to U.S. Economy: Housing Market- https://sgp.fas.org/crs/misc/IF11327.pdf. 2021 May 3;
-2.  De Cock D. Ames, Iowa: Alternative to the Boston housing data as an end of semester regression project. Journal of Statistics Education. 2011 Nov 1;19(3)
-3.  Lee, Anthony J.T.; Lin, Ming-Chih; Kao, Rung-Tai; and Chen, Kuo-Tay, "An Effective Clustering Approach to Stock Market Prediction" (2010). PACIS 2010 Proceedings. 54.
+1.  Congressional Research Service: Introduction to U.S. Economy: Housing Market- https://sgp.fas.org/crs/misc/IF11327.pdf. 2021 May 3
+2.  P. Durganjali and M. V. Pujitha, "House Resale Price Prediction Using Classification Algorithms," 2019 International Conference on Smart Structures and Systems (ICSSS), 2019, pp. 1-4
+3.  V. S. Rana, J. Mondal, A. Sharma and I. Kashyap, "House Price Prediction Using Optimal Regression Techniques," 2020 2nd International Conference on Advances in Computing, Communication Control and Networking (ICACCCN), 2020, pp. 203-208
+4.  S. B. Sakri and Z. Ali, "Analysis of the Dimensionality Issues in House Price Forecasting Modeling," 2022 Fifth International Conference of Women in Data Science at Prince Sultan University (WiDS PSU), 2022, pp. 13-19
+5.  De Cock D. Ames, Iowa: Alternative to the Boston housing data as an end of semester regression project. Journal of Statistics Education. 2011 Nov 1;19(3)
+6.  Lee, Anthony J.T.; Lin, Ming-Chih; Kao, Rung-Tai; and Chen, Kuo-Tay, "An Effective Clustering Approach to Stock Market Prediction" (2010). PACIS 2010 Proceedings. 54.
 
 # Timeline
 The detailed timeline can be found in [Gantt Chart](https://docs.google.com/spreadsheets/d/1az16wonnse66ozJ7zGFMCuXEZcn8mAw1/edit?usp=sharing&ouid=105426710738045720116&rtpof=true&sd=true)
