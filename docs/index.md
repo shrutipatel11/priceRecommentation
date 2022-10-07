@@ -5,7 +5,7 @@ description: Aayushi Agarwal, Anirudh Heda, Dhruv Garg, Navdha Agarwal, Shruti P
 ---
 
 # Introduction/Background
-Housing price instability was an important cause of the 2007-2008 US recession[1]. Predicting property’s value to forecast such depressions was consequential thereafter. Some of the past works include regression techniques[2][3] and dimensionality reduction to improve house prediction model’s accuracy[4]. We are using the Ames Housing Dataset[5] which describes sales of individual housing properties in Ames, Iowa in 2006-2010. This dataset contains 2930 observations and 80 explanatory features such as property’s sale price, finish quality, construction, and remodeling year. It provides a comprehensive understanding of factors that influence housing price negotiations.
+Housing price instability was an important cause of the 2007-2008 US recession[1]. Predicting property’s value to forecast such depressions was consequential thereafter. Some of the past works include regression techniques[2][3], and dimensionality reduction to improve house prediction model’s accuracy[4]. We are using the Ames Housing Dataset[5] which describes sales of individual housing properties in Ames, Iowa in 2006-2010. This dataset contains 2930 observations and 80 explanatory features such as property’s sale price, finish quality, construction, and remodeling year. It provides a comprehensive understanding of factors that influence housing price negotiations.
 
 
 # Problem
