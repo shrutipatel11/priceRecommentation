@@ -22,8 +22,7 @@ We are using the Ames Housing dataset compiled by Dean De Cock for use in data s
 ### Categorical Features
  For the categorical features with NAN values, we have replaced the cells with “None”. For instance, for the feature “Pool.Qc”, we have 2917 NAN values. Some non-NAN categorical values spanned [‘Ex’, ‘Gd’, ‘TA’, ‘Fa’] standing for Excellent, Good, Typical/Average, Fair respectively. Replacing NAN values with ‘None’ signifies the absence of the that feature.
 
- ![Categorical Features](https://github.com/shrutipatel11/priceRecommentation/blob/main/docs/images/categorical_features.png)
- ![Octocat](https://github.githubassets.com/images/icons/emoji/octocat.png)
+ ![Categorical Features](./images/categorical_features.png)
 
 ### Numerical Features
 For numerical features, we applied a suitable Nan replacement based on the data of each column. For example:
