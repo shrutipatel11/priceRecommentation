@@ -22,7 +22,10 @@ We are using the Ames Housing dataset compiled by Dean De Cock for use in data s
 ### Categorical Features
  For the categorical features with NAN values, we have replaced the cells with “None”. For instance, for the feature “Pool.Qc”, we have 2917 NAN values. Some non-NAN categorical values spanned [‘Ex’, ‘Gd’, ‘TA’, ‘Fa’] standing for Excellent, Good, Typical/Average, Fair respectively. Replacing NAN values with ‘None’ signifies the absence of the that feature.
 
- ![Categorical Features](./images/categorical_features.png)
+<p align="center">
+  <img src="./images/categorical_features.png?raw=true" alt="Categorical Features"/>
+</p>
+ <!-- ![Categorical Features](./images/categorical_features.png) -->
 
 ### Numerical Features
 For numerical features, we applied a suitable Nan replacement based on the data of each column. For example:
@@ -68,6 +71,7 @@ As observed in the graphs above, the overall house quality and living area both 
 
 #### Analyze correlated features
 The correlation matrix also shows the presence of some features that are strongly correlated among themselves. Eg. GarageCars and GarageArea, GarageYearBuilt and the YrBuilt of the house. Since multicollinearity has a negative impact on our prediction models, we drop a feature that has a lower correlation with the sale price.
+
 ![Correlated Features](./images/correlated_features.png)
 
 
@@ -80,7 +84,7 @@ Label encoding converts labels into a numeric form. Some of the categorical feat
 
 ### Skewness and normalizing variables
 Linear regression models assume normally distributed input data. This gives equal weight/importance to features and the penalty coefficients are the same for all the features. We use log transformation to fix our right-skewed data. We apply log transformation to SalePrice and other numerical variables.
-![Feature Engg](./images/feature_engg1.png)
+![Feature Engg](./images/feat_engg1.png)
 
 ### Feature scaling
 Optimization methods and gradient descent converge faster on similarly scaled features. However, some models like Lasso and Elastic Net are very sensitive to outliers. We use RobustScaler to transform the training data.
