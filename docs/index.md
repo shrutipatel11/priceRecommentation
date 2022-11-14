@@ -25,20 +25,25 @@ We are using the Ames Housing dataset compiled by Dean De Cock for use in data s
 <p align="center">
   <img src="./images/categorical_features.png?raw=true" alt="Categorical Features"/>
 </p>
- <!-- ![Categorical Features](./images/categorical_features.png) -->
 
 ### Numerical Features
 For numerical features, we applied a suitable Nan replacement based on the data of each column. For example:
 1. **Lot.Frontage** had 490 NAN values. This feature tells us the length of the linear street connected to the property. To properly estimate this feature, we used the Neighbourhood feature. Using this, we replace NAN values with the average value of all the Lot.Frontage for that datapoint’s neighbourhood. The neighborhoods GrnHill and LandMrk had many Lot.Frontage NANs. So we replaced the value for this feature to 0.
 2. Similarly, **Garage.Yr.Blt** had 159 NAN values, which we replaced with None and Mas.Vnr.Area had 23 NAN values, which we replaced with 0 indicating it does not have area.
-![Numerical Features](./images/numerical_features.png)
+<!-- ![Numerical Features](./images/numerical_features.png) -->
+<p align="center">
+  <img src="./images/numerical_features.png?raw=true" alt="Numerical Features"/>
+</p>
 
 
 ## Exploratory Data Analysis
 ### Analysis of target variable: SalePrice
 Our ML task is to predict the price of houses given a set of features. If our target variable is skewed towards a certain set of values or has a non-normal distribution, it will be difficult for the model to learn. Thus, it is important to evaluate the distribution of our target variable and take remedial steps if needed.
 
-![Analysis of Sale Price](./images/analysis_sale_price.png)
+<!-- ![Analysis of Sale Price](./images/analysis_sale_price.png) -->
+<p align="center">
+  <img src="./images/analysis_sale_price.png?raw=true" alt="Analysis of Sale Price"/>
+</p>
 
 For observing our SalePrice, we evaluate skewness and kurtosis. 
 1. Skewness measures the asymmetry of a distribution. `SalePrice` has a skewness of `1.74` (i.e. > 1) which means that the distribution is heavily skewed to the right. It means that our target variable has a very asymmetric distribution.
@@ -51,14 +56,20 @@ Next we wanted to evaluate numerical features. This is basically to identify whi
 #### Correlation Function 
 In this method we used sklearn’s correlation function. It gave us the top 10 features correlated with SalePrice. Some of these features included the overall quality, living area, garage area, number of full bathrooms, year built and the year in which the house was remodeled.
 
-![Correlation Function](./images/correlation_function.png)
+<!-- ![Correlation Function](./images/correlation_function.png) -->
+<p align="center">
+  <img src="./images/correlation_function.png?raw=true" alt="Correlation Function"/>
+</p>
 
 #### Feature Elimination
 In the second method we used sklearn’s recursive feature elimination method. It excludes the categorical variables and returns a list of top 10 features that were closely related with the SalePrice attribute.
 
 According to both of our above analyses, the overall quality, living area, number of full baths, cars in the garage and the year of built are some of the most important features in determining the house price. 
 
-![Feature Elimination](./images/feature_elimination.png)
+<!-- ![Feature Elimination](./images/feature_elimination.png) -->
+<p align="center">
+  <img src="./images/feature_elimination.png?raw=true" alt="Feature Elimination"/>
+</p>
 
 As observed in the graphs above, the overall house quality and living area both have a direct relationship with the sale price. If one increases, so does the sale price.
 
@@ -66,13 +77,19 @@ As observed in the graphs above, the overall house quality and living area both 
 #### Analysis of categorical variables (Examples):
 **Neighborhood** influences the cost of the house. Areas like StoneBr, NoRidge are costly (median of $300K) while areas like BrDale and MeadowV are cheaper (median $100K). Similarly, The average price difference between a house with a good kitchen and one with excellent kitchen is about $120,000.
 
-![Categorical Variables](./images/categorical_variables.png)
+<!-- ![Categorical Variables](./images/categorical_variables.png) -->
+<p align="center">
+  <img src="./images/categorical_variables.png?raw=true" alt="Categorical Variables"/>
+</p>
 
 
 #### Analyze correlated features
 The correlation matrix also shows the presence of some features that are strongly correlated among themselves. Eg. GarageCars and GarageArea, GarageYearBuilt and the YrBuilt of the house. Since multicollinearity has a negative impact on our prediction models, we drop a feature that has a lower correlation with the sale price.
 
-![Correlated Features](./images/correlated_features.png)
+<!-- ![Correlated Features](./images/correlated_features.png) -->
+<p align="center">
+  <img src="./images/correlated_features.png" alt="Correlated Features"/>
+</p>
 
 
 ## Feature Engineering
@@ -84,7 +101,11 @@ Label encoding converts labels into a numeric form. Some of the categorical feat
 
 ### Skewness and normalizing variables
 Linear regression models assume normally distributed input data. This gives equal weight/importance to features and the penalty coefficients are the same for all the features. We use log transformation to fix our right-skewed data. We apply log transformation to SalePrice and other numerical variables.
+
 ![Feature Engg](./images/feat_engg1.png)
+<p align="center">
+  <img src="./images/feat_engg1.png?raw=true" alt="Feature Engg"/>
+</p>
 
 ### Feature scaling
 Optimization methods and gradient descent converge faster on similarly scaled features. However, some models like Lasso and Elastic Net are very sensitive to outliers. We use RobustScaler to transform the training data.
@@ -100,9 +121,20 @@ Optimization methods and gradient descent converge faster on similarly scaled fe
 
 
 ## Model Evaluation
-![Model Eval 1](./images/model_eval1.png)
-![Model Eval 2](./images/model_eval2.png)
-![Model Eval 3](./images/model_eval3.png)
+<!-- ![Model Eval 1](./images/model_eval1.png) -->
+<p align="center">
+  <img src="./images/model_eval1.png?raw=true" alt="Model Eval 1"/>
+</p>
+
+<!-- ![Model Eval 2](./images/model_eval2.png) -->
+<p align="center">
+  <img src="./images/model_eval2.png?raw=true" alt="Model Eval 2"/>
+</p>
+
+<!-- ![Model Eval 3](./images/model_eval3.png) -->
+<p align="center">
+  <img src="./images/model_eval3.png?raw=true" alt="Model Eval 3"/>
+</p>
 
 ## KFold cross validation
 We used KFold cross validation where we divide the train set into K folds. For each fold, we train on data except the selected fold and evaluate the performance on the fold. This process is repeated for all the folds. We capture the average loss and scores for all the folds.
@@ -110,12 +142,20 @@ We used KFold cross validation where we divide the train set into K folds. For e
 
 ## Hyperparemeter Tuning
 We tune the regularization parameter in both ridge and lasso. For calculating the best alpha, we train the model with a set of values and choose the value with the lowest mean loss. As we can observe in the graphs plotted between RMSE and regularization param, the loss first decreases as we increase the regularization strength and then starts increasing. A very high regularization doesn’t allow the model to fit the data properly and leads to underfitting. Therefore, after a threshold value of regularization strength, the model starts performing poorly with high error rates.
-![RMSE](./images/rmse.png)
+
+<!-- ![RMSE](./images/rmse.png) -->
+<p align="center">
+  <img src="./images/rmse.png?raw=true" alt="RMSE"/>
+</p>
 
 
 ## Model Performance
 We use the Root Mean Square Error (RMSE) for evaluating the trained model on the test set. 
-![Model Performance](./images/model_perf.png)
+
+<!-- ![Model Performance](./images/model_perf.png) -->
+<p align="center">
+  <img src="./images/model_perf.png?raw=true" alt="Model Performance"/>
+</p>
 
 
 ## Result Analysis
@@ -135,12 +175,8 @@ A simple non-regularized linear regression model performs very poorly and gives 
 # Contribution
 | Process                           | Name      |
 |:----------------------------------|:----------|
-| Problem Selection                 | All       |
-|Introduction & Background          | Navdha    |
-|Problem Definition                 | Navdha    |
-|Methods (Supervised)               | Dhruv     |
-|Methods (Unupervised)              | Anirudh   |
-|Potential Results & Discussion     | Aayushi   |
-|Presentation                       | All       |
-|Video Recording                    | Shruti    |
+|Data Cleaning                      | Navdha    |
+|Exploratory Data Analysis          | Dhruv     |
+|Feature Engineering                | Anirudh   |
+|Supervised Learning                | Aayushi   |
 |GitHub Page                        | Shruti    |    
