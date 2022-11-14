@@ -102,7 +102,7 @@ Label encoding converts labels into a numeric form. Some of the categorical feat
 ### Skewness and normalizing variables
 Linear regression models assume normally distributed input data. This gives equal weight/importance to features and the penalty coefficients are the same for all the features. We use log transformation to fix our right-skewed data. We apply log transformation to SalePrice and other numerical variables.
 
-![Feature Engg](./images/feat_engg1.png)
+<!-- ![Feature Engg](./images/feat_engg1.png) -->
 <p align="center">
   <img src="./images/feat_engg1.png?raw=true" alt="Feature Engg"/>
 </p>
