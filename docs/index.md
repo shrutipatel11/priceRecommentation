@@ -159,8 +159,108 @@ We use the Root Mean Square Error (RMSE) for evaluating the trained model on the
 
 
 ## Result Analysis
-A simple non-regularized linear regression model performs very poorly and gives a very high loss value. Lasso and Ridge both perform much better than a simple non-regularized linear regression model. Lasso eliminates several features and thus is able to perform slightly better than even ridge-regression which eliminates only 1 feature.
+For our regression task, we started by training linear, ridge and lasso regression models. Among these three, lasso performed the best. A simple non-regularized linear regression model performs very poorly and gives a very high loss value. Lasso and Ridge both perform much better than a simple non-regularized linear regression model. Lasso eliminates several features and thus is able to perform slightly better than even ridge-regression which eliminates only 1 feature. However, these are simplistic models and cannot usually work with complex datasets and features. Thus, to train a better regression model, we used advanced regression models like XGBRegressor, LGBMRegressor, Support Vector Regressor, Random Forest Regressor and ElasticNet.
 
+We first trained our supervised regression on all the 288 available features. The table below captures different  metrics that we used to evaluate our models Mean Average Error (MAE), Mean Square Error (MSE), Root Mean Square Error (RMSE), R2 score, and the cross validation RMSE.
+
+The results obtained when all the 288 features were used are as follows:
+<p align="center">
+  <img src="./images/result1.png?raw=true" alt="Result 1"/>
+</p>
+
+We knew that while using all the features for the model is a good start, it is not ideal. Feature selection has known benefits of reducing overfitting and improving accuracy while also leading to shortened training times. Thus, we explored two techniques to perform feature selection: GridSearchCV and selectingKBest based on features’ mutual information. 
+<p align="center">
+  <img src="./images/something.png?raw=true" alt="Feat selection"/>
+</p>
+
+Upon performing these two techniques, we were able to eliminate 108 features (~38%) from the model.  We re-trained and evaluated all our models with the reduced selected feature set. The results obtained when 180 selected features were used are as follows:
+<p align="center">
+  <img src="./images/result2.png?raw=true" alt="Result 2"/>
+</p>
+
+We observed that not only did the training times reduce significantly, our metrics of model evaluation also improved across the board.
+
+# Unsupervised Learning Methods
+On applying dimensionality reduction algorithm (PCA) on the scaled and encoded data, we reduce the number of features to 51 instead of 288. We removed the redundant features which were highly correlated with at least one other feature based on the correlation matrix obtained. We preserve 90% of variance with 51 features. For the first experiment, we applied hierarchical clustering and K means clustering on all the features. 
+
+<p align="center">
+  <img src="./images/corr2.png?raw=true" alt="Correlation unsupervised"/>
+</p>
+
+## Results and Discussions
+The metrics obtained for K-Means clustering using all the features:
+MAE: 0.21582002599324188
+MSE: 0.08856944957030345
+RMSE: 0.2976061988102792
+R2 Score: 0.3117824783201255
+
+The metrics obtained for Hierarchical clustering using all the features:
+MAE: 0.22224744503045712
+MSE: 0.09222645673704193
+RMSE: 0.3036880912005637
+R2 Score: 0.2833661742641709
+
+<p align="center">
+  <img src="./images/silhouette.png?raw=true" alt="Silhouette"/>
+</p>
+
+As observed in silhouette scores, clustering isn't ideal with such a dataset with so many dimensions, even after dimensionality reduction using PCA. Though the MAE is less, the sale price predicted is done by calculating the mean of the cluster and using the same mean sale price value for all the unknown houses belonging to the same cluster. Hence, clustering might give some approximate values for a regression problem, but is not ideal as the same cluster mean/median is not applicable for all houses in the same cluster (or all houses that are similar to each other).
+
+Instead we can use clustering to group similar houses and visualize how simple parameters affect cluster formation. 
+
+Let us try to answer the question : **Can the Ames Housing data be clustered based on living area?**
+Using K-Means clustering, we were able to cluster the data based on living area and the sale price. We grouped the data into 5 clusters.
+
+<p align="center">
+  <img src="./images/living.png?raw=true" alt="Living Area"/>
+</p>
+
+Let us try to answer the question : **Can the Ames Housing data be clustered based on first floor lot area?**
+Using Hierarchical clustering, we were able to cluster the data based on lot area and the sale price.
+
+<p align="center">
+  <img src="./images/dendogram.png?raw=true" alt="Dendogram"/>
+</p>
+
+We choose the number of clusters to be 3. We cut the dendrogram so that we obtain 3 clusters as follows.
+
+<p align="center">
+  <img src="./images/firstflr.png?raw=true" alt="First floor"/>
+</p>
+
+As clustering groups similar houses together, it would be a great method to recommend houses to prospective buyers. As a result, we devised a recommender system which recommends similar houses based on the type of apartment the user is interested in.
+
+
+# Content Based Recommendation System
+
+This algorithm is used to compute similarities between apartments based on all the features selected by the PCA. The main idea is to recommend apartments based on the apartment characteristics that the user has shown interest in (taken as an input).
+
+To get similar apartments, we take the k-nearest neighbors approach. We first find the cosine matrix to find the similarities between the apartments. Given the input apartment features that the user is interested in, we find the k most similar apartments for the input apartment from the cosine matrix. 
+
+Some examples of the recommendations based on overview :
+## Example 1 
+Input : The apartment the user showed interest in
+<p align="center">
+  <img src="./images/input1.png?raw=true" alt="Input"/>
+</p>
+
+Output:
+<p align="center">
+  <img src="./images/output1.png?raw=true" alt="Output"/>
+</p>
+
+## Example 2
+Input : The apartment the user showed interest in
+<p align="center">
+  <img src="./images/input2.png?raw=true" alt="Input"/>
+</p>
+
+Output :
+<p align="center">
+  <img src="./images/output1.png?raw=true" alt="Output"/>
+</p>
+
+As observed from the examples, the recommendations that the algorithm gives are very similar to the apartment that the user has shown interest in. The algorithm performs really well for recommendations.
 
 
 # References
@@ -172,11 +272,12 @@ A simple non-regularized linear regression model performs very poorly and gives 
 6.  Lee, Anthony J.T.; Lin, Ming-Chih; Kao, Rung-Tai; and Chen, Kuo-Tay, "An Effective Clustering Approach to Stock Market Prediction" (2010). PACIS 2010 Proceedings. 54.
 
 
-# Contribution
+# Contribution (After Midterm Report)
 | Process                           | Name      |
 |:----------------------------------|:----------|
-|Data Cleaning                      | Navdha    |
-|Exploratory Data Analysis          | Dhruv     |
-|Feature Engineering                | Anirudh   |
-|Supervised Learning                | Aayushi   |
-|GitHub Page                        | Shruti    |    
+|Supervised Learning Impl           | Anirudh   |
+|Supervised Learning Analysis       | Dhruv     |
+|Unsupervised Learning              | Shruti    |
+|Presentation                       | Aayushi   |
+|Video                              | Navdha    |
+|GitHub Page                        | Aayushi, Navdha    |    
