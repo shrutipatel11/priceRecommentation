@@ -184,7 +184,7 @@ We observed that not only did the training times reduce significantly, our metri
 On applying dimensionality reduction algorithm (PCA) on the scaled and encoded data, we reduce the number of features to 51 instead of 288. We removed the redundant features which were highly correlated with at least one other feature based on the correlation matrix obtained. We preserve 90% of variance with 51 features. For the first experiment, we applied hierarchical clustering and K means clustering on all the features. 
 
 <p align="center">
-  <img src="./images/corr2.png?raw=true" alt="Correlation unsupervised"/>
+  <img src="./images/Correlation.png?raw=true" alt="Correlation unsupervised"/>
 </p>
 
 ## Results and Discussions
